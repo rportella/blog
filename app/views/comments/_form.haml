@@ -1,0 +1,26 @@
+= form_for [post, comment] do |f|
+
+  = error_massages_for comment
+
+  .field
+    = f.label :author
+    %br
+    = f.text_field :author
+
+  .field
+    = f.label :email
+    %br
+    = f.text_field :email
+
+  .field
+    = f.label :url
+    %br
+    = f.text_field :url
+
+  .field
+    = f.label :body
+    %br
+    = f.text_field :body
+
+  .actions
+    = f.submit

@@ -1,0 +1,14 @@
+%h2= @post.title
+#post
+  = simple_format @post.body
+
+%h3 Comments
+#comments
+  - if
+    = render @post.comments
+  - else
+    %p Nobody commented this post yet
+
+= render "comments/form", post: @post, comment: Comment.new
+= link_to "Edit", edit_post_path(@post) |
+= link_to "Back", posts_path

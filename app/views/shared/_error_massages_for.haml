@@ -1,0 +1,8 @@
+- if resourse.errors.any?
+  #error_explanation
+    %h2= pluralize(resourse.errors.count, "error")
+    'prohibited this from being saved:'
+
+    #ul
+    - resourse.errors.full_messages.each do |msg|
+      %li= msg
