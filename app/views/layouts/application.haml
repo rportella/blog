@@ -2,9 +2,72 @@
 %html
 %head
   %title Blog
-  = stylesheet_link_tag    "application", media: "all"
-  = javascript_include_tag "application"
+  = stylesheet_link_tag    "application", "scaffold"
+  = javascript_include_tag "defaults"
   = csrf_meta_tags
 %body
-  = flash_messages
-= yield
+  #wrapper
+    #header
+      #logo
+        = image_tag "logo_header.png", :class => "middle"
+
+      #main-nav
+        %ul
+          %li
+            = link_to root_path do
+              HOME
+              %br
+              %span DISCOVER OUR
+              %br AWESOME PRODUCT
+          %li
+            %a TOUR
+            %br
+            %span DISCOVER WHY IT'LL
+            %br MAKE YOUR LIFE BETTER
+          %li
+            = link_to posts_path do
+              BLOG
+              %br
+              %span
+                NEWS, TIPS AND OUR
+                %br
+                RANDOM THOUGHTS
+          %li
+            %a FAQ
+            %br
+            %span FREQUENTLY ASKED
+            %br QUESTION
+          %li
+            %a CONTACT
+            %br
+            %span YOU'RE NOT ALONE
+            %br GET IN TOUCH
+          %li
+            %a PRICE
+            %br
+            %span SMALL AMOUNT
+            %br FOR A BIG BENEFIT
+
+    #content
+      = flash_messages
+
+      = yield
+
+    #footer
+      #footer-nav
+        %ul
+          %li
+            %a HOME
+          %li
+            %a TOUR
+          %li
+            %a BLOG
+          %li
+            %a FAQ
+          %li
+            %a CONTACT
+          %li
+            %a PRICE
+
+
+

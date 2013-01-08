@@ -1,0 +1,26 @@
+!!!
+%html
+%head
+  %title Blog
+  = stylesheet_link_tag    "admin", "scaffold"
+  = javascript_include_tag "defaults"
+  = csrf_meta_tags
+%body
+
+  #wrapper
+    #header
+      #main-nav
+        %ul
+          %li= link_to 'Dashboard', '#'
+          %li= link_to 'Posts', '#'
+          %li= link_to 'Media', '#'
+          %li= link_to 'Changelog', '#'
+          %li= link_to 'FAQ', '#'
+          %li= link_to 'Inquiries', '#'
+
+
+    #content-wrapper
+      #content
+        .in
+          = flash_messages
+          = yield

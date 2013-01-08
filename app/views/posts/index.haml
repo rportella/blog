@@ -1,19 +1,13 @@
-%h1 Listing posts
+#column1
+  - if @posts.present?
 
-- if @posts.present?
-  - @posts.each do |post|
-    %h2= link_to post.title, post
-    #post
-      = simple_format post.excerpt
+    - @posts.each do |post|
+      %h2= link_to post.title.titleize, post
 
-      %p= link_to "continue...", post
+      #post
+        = simple_format post.excerpt
 
-      %p
-        =link_to "Edit", edit_post_path(post) |
-        = link_to "Destroy", post, confirm: 'Are you sure?', method: :delete
+        %p= link_to "continue ...", post
 
-- else
-
-  %p We`ll start posting soon.
-
-= link_to 'New Post', new_post_path
+  - else
+    %p We'll start posting soon.

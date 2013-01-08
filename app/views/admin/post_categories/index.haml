@@ -1,0 +1,18 @@
+%h2 Posts Categories
+
+- if @categories.present?
+%ul.list
+  - @categories.each do |category|
+    = content_tag_for :li, category, :class => cycle(:odd, :even) do
+      = link_to category.name, [:admin, category]
+
+      .right
+        = link_to_edit [:edit, :admin, category] ,
+        = link_to_destroy [:admin, category]
+  %p You don't have any posts yet.
+
+%hr.thick
+
+.bar
+  .right
+    = link_to 'New category', new_admin_post_category_path, :class => "button"

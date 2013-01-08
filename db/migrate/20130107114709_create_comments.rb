@@ -1,13 +1,13 @@
 class CreateComments < ActiveRecord::Migration
   def change
     create_table :comments do |t|
-      t.string :author
-      t.string :email
-      t.string :url
-      t.string :body
-      t.references :post
+          t.string :author
+          t.string :email
+          t.string :url
+          t.string :body
+          t.references :post
 
-      t.timestamps
+          t.timestamps
     end
     add_index :comments, :post_id
   end
