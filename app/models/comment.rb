@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   belongs_to :post
-  attr_accessible :author, :body, :email, :url
+  attr_accessible :author, :body, :email, :url, :gravatar_image_tag
 
   validates_presence_of :body, :post
   validates_associated :post

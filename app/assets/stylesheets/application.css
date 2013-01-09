@@ -13,6 +13,13 @@ body {
   text-align:center;
 }
 
+hr {
+  background-color:#000;
+  border:medium none;
+  height:2px;
+  margin: 20px 0 20px 0;
+}
+
 h2, h3, h4, h5 { font-family: "Trebuchet MS", Helvetica, Tahoma, sans-serif; }
 h2 { font-size: 25px; }
 h3 { font-size: 20px; }
@@ -34,7 +41,7 @@ div#header{
   height: 213px;
   line-height: 213px;
   margin-bottom: 30px;
-  background: url(/images/separator.png) repeat-x bottom;
+  background: url(separator.png) repeat-x bottom;
 }
 
 div#header #logo{
@@ -49,11 +56,10 @@ div#header #main-nav {
 /* footer */
 
 div#footer {
-  padding-top: 20px;
-  margin-top: 50px;
+  padding-top: 10px;
   height: 150px;
   line-height: 150px;
-  background: url(/images/separator.png) repeat-x top;
+  background: url(separator.png) repeat-x top;
   text-align: center;
   clear: both;
   display: block;
@@ -110,16 +116,20 @@ div#footer #footer-nav a span {
   color: #8F8F8F;
 }
 
-div#header #main-nav li.current,
-div#header #main-nav li.current a span
-div#footer #footer-nav li.current,
-div#footer #footer-nav li.current a span { color:#d7412c; }
+div#footer #footer-nav li.current a { color:#d7412c; }
 
 /* content */
 
+#content { margin: 50px 0 50px 0; }
 #content a { color: #d7412c; }
 #content a:hover { color: #9b9e9f; }
 
 #content h2 a,
 #content h3 a,
 #content h4 a { color: #000; }
+
+/* form */
+
+.search-field {
+  font-size: 20px;
+}

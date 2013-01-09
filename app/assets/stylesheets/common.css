@@ -34,12 +34,12 @@ hr.thick {
 
 ul.squared li {
   color: #9b9e9f;
-  list-style: none inside url(/images/bullet.png);
+  list-style: none inside url(bullet.png);
 }
 
 ul.squared-horizontal li {
   color: #9b9e9f;
-  background: url(/images/bullet.png) no-repeat left center;
+  background: url(bullet.png) no-repeat left center;
   padding-left:15px;
   margin-right:10px;
   display: inline;
@@ -61,14 +61,14 @@ ul.squared-horizontal li {
 #notice {
   padding: 10px 10px 10px 40px;
   color: #264409;
-  background: #e6efc2 url(/images/notice_icon.png) no-repeat 10px 10px;
+  background: #e6efc2 url(notice_icon.png) no-repeat 10px 10px;
   border: 1px solid #c6d880;
 }
 
 #alert {
   padding: 10px 10px 10px 40px;
   color: #514721;
-  background: #fff6bf url(/images/alert_icon.png) no-repeat 10px 10px;
+  background: #fff6bf url(alert_icon.png) no-repeat 10px 10px;
   border: 1px solid #ffd324;
 }
 
@@ -77,7 +77,7 @@ ul.squared-horizontal li {
   padding: 10px 10px 10px 40px;
   color: #8a1f11;
   background-color: #fbe3e4;
-  background-image: url(/images/error_icon.png);
+  background-image: url(error_icon.png);
   background-position: 10px 10px;
   background-repeat: no-repeat;
   border: 1px solid #fbc2c4;

@@ -1,0 +1,61 @@
+= form_for [:admin, @post] do |f|
+
+  #body
+    .field
+      = f.label :author_id, t(".author")
+      = f.collection_select :author_id, @authors, :id, :full_name
+
+    .field
+      = f.text_field :title, placeholder: ta(Post, :title), :class => "title"
+
+    .field
+      = f.text_area :excerpt, placeholder: ta(Post, :excerpt), :rows => 5, :cols => 70
+
+    .field
+      = f.text_area :body, placeholder: ta(Post, :body), :rows => 30, :cols => 70
+
+    .field
+      = f.check_box :draft
+      = f.label :draft
+
+    %hr
+      .thick
+
+    %p
+      = f.submit :class => "button"
+      = t "text.or"
+      = link_to t("cancel"), admin_posts_path
+
+  #sidebar
+    = section t(".pcategories") do
+      %ul
+        .categories-field
+          - @categories.each do |c|
+            %li
+              = check_box_tag "post[category_ids][]", c.id, @post.categories.include?(c)
+              = c.name
+        .bar
+          = link_to_new PostCategory, new_admin_post_category_path, class: "button right"
+
+    = section  do
+      .field
+        = f.label :published_at
+        %br
+        = f.date_select :published_at, use_short_month: true
+
+    = section  do
+      .field
+        = f.label :slug, t(".slug")
+        %br
+        = f.text_field :slug, :size => 38
+
+      = section t"assets" do
+        .media
+          - @assets.each do |a|
+            = link_to image_tag(a.document.url(:thumb)), a.document.url, target: "_blank"
+
+= javascript_include_tag "lib/jquery.textile.image"
+
+- content_for :bottom do
+  :javascript
+    $(".media").insertTextileImageTo("#post_body")

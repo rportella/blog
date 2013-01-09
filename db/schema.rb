@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130108110214) do
+ActiveRecord::Schema.define(:version => 20130109163558) do
+
+  create_table "assets", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+  end
 
   create_table "comments", :force => true do |t|
     t.string   "author"
@@ -31,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20130108110214) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "post_categories_post", :id => false, :force => true do |t|
+  create_table "post_categories_posts", :id => false, :force => true do |t|
     t.integer "post_id",          :null => false
     t.integer "post_category_id", :null => false
   end
@@ -40,9 +51,12 @@ ActiveRecord::Schema.define(:version => 20130108110214) do
     t.string   "title"
     t.string   "excerpt"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "author_id"
+    t.boolean  "draft"
+    t.string   "slug"
+    t.datetime "published_at"
   end
 
   create_table "users", :force => true do |t|

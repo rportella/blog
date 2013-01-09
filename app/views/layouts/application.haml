@@ -9,7 +9,7 @@
   #wrapper
     #header
       #logo
-        = image_tag "logo_header.png", :class => "middle"
+        = image_tag "logo_header.png", class: "middle"
 
       #main-nav
         %ul
@@ -17,13 +17,16 @@
             = link_to root_path do
               HOME
               %br
-              %span DISCOVER OUR
-              %br AWESOME PRODUCT
+              %span
+                DISCOVER OUR
+                %br AWESOME PRODUCT
           %li
-            %a TOUR
-            %br
-            %span DISCOVER WHY IT'LL
-            %br MAKE YOUR LIFE BETTER
+            %a
+              TOUR
+              %br
+              %span
+                DISCOVER WHY IT'LL
+                %br MAKE YOUR LIFE BETTER
           %li
             = link_to posts_path do
               BLOG
@@ -33,41 +36,40 @@
                 %br
                 RANDOM THOUGHTS
           %li
-            %a FAQ
-            %br
-            %span FREQUENTLY ASKED
-            %br QUESTION
+            %a
+              FAQ
+              %br
+              %span
+                FREQUENTLY ASKED
+                %br QUESTION
           %li
-            %a CONTACT
-            %br
-            %span YOU'RE NOT ALONE
-            %br GET IN TOUCH
+            %a
+              CONTACT
+              %br
+              %span
+                YOU'RE NOT ALONE
+                %br GET IN TOUCH
           %li
-            %a PRICE
-            %br
-            %span SMALL AMOUNT
-            %br FOR A BIG BENEFIT
+            %a
+              PRICE
+              %br
+              %span
+                SMALL AMOUNT
+                %br FOR A BIG BENEFIT
 
     #content
       = flash_messages
-
       = yield
 
     #footer
       #footer-nav
         %ul
-          %li
-            %a HOME
-          %li
-            %a TOUR
-          %li
-            %a BLOG
-          %li
-            %a FAQ
-          %li
-            %a CONTACT
-          %li
-            %a PRICE
+          %li= link_to 'HOME','#'
+          %li= link_to "TOUR","#"
+          %li= link_to "BLOG","#"
+          %li= link_to "FAQ","#"
+          %li= link_to "CONTACT","#"
+          %li= link_to "PRICE","#"
 
 
 

@@ -1,0 +1,23 @@
+%h2
+  = t("Post")
+
+- if @posts.present?
+  %ul
+    .list
+    - @posts.each do |post|
+      = content_tag_for :li, post, :class => cycle(:odd, :even) do
+        = link_to post.title.titleize, [:admin, post]
+
+        .right
+          = link_to_edit [:edit, :admin, post]
+          ,
+          = link_to_destroy [:admin, post]
+- else
+  %p You don't have any posts yet.
+
+%hr
+  .thick
+
+    .bar
+      .right
+        = link_to_new Post, new_admin_post_path, :class => "button"

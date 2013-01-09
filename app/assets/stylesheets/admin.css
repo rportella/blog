@@ -15,7 +15,7 @@ body {
   color: black;
   margin: 0;
   padding: 0;
-  background-color: #E6EAEF !important;
+  background-color: #E7E7E7 !important;
   text-align:center;
 }
 
@@ -34,29 +34,69 @@ div#wrapper {
 
 /* header */
 
-div#header #main-nav ul {
-  text-shadow: white 0px 1px 1px;
-  overflow: hidden;
-  list-style: none;
+div#header { overflow: hidden; }
+
+div#header #user-bar, div#header #main-nav {
+  vertical-align: middle;
+  height:35px;
+  margin-top:15px;
 }
 
-div#header #main-nav li {
+div#header #user-bar { float: right; }
+div#header #main-nav { float: left; }
+
+div#header #user-bar a, div#header #main-nav li {
   display: inline;
   float: left;
   line-height: 12px;
   margin-right: 10px;
-  padding: 10px;
+  padding: 8px;
   font-weight: bold;
+  background: #62BDEB;
 
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+
+  box-shadow: 0 1px 1px #FFF;
+  -moz-box-shadow: 0 1px 1px #FFF;
+  -webkit-box-shadow: 0 1px 1px #FFF;
+
+  text-shadow: 1px 1px 1px #10526F;
+  font-weight: bold;
+  border: 1px solid #4A87A2;
+  background-image: -moz-linear-gradient(100% 100% 180deg, #00B2D2, #0082AF);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00B2D2), to(#0082AF));
 }
 
-div#header #main-nav li a { color: #484B52; }
+div#header #user-bar a{
+  color: #FFF;
+  text-shadow: 1px 1px 1px #731110;
+  border-color: #731110;
+  background-image: -moz-linear-gradient(100% 100% 180deg, #B63127, #731110);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#B63127), to(#731110));
+}
 
-div#header #main-nav li.current,
-div#header #main-nav li.current a { color:#484B52; }
+div#header #main-nav ul {
+  overflow: hidden;
+  list-style: none;
+  padding:0;
+  margin:0;
+}
+
+div#header #main-nav li a { color: #FFF; }
+
+div#header #main-nav li.current {
+  text-shadow: 1px 1px 1px #FFF;
+  border-color: #cccccc;
+  color: #666;
+  background-image: -moz-linear-gradient(100% 100% 180deg, #f0f0f0, #d9d9d9);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f0f0f0), to(#d9d9d9));
+}
+
+div#header #main-nav li.current a {
+  color: #666;
+}
 
 /* content */
 
@@ -67,9 +107,9 @@ div#content {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 
-  box-shadow: 2px 2px 4px #BCC1C7;
-  -moz-box-shadow: 2px 2px 4px #BCC1C7;
-  -webkit-box-shadow: 2px 2px 4px #BCC1C7;
+  box-shadow: 0 10px 4px #BBB;
+  -moz-box-shadow: 0 4px 4px #BBB;
+  -webkit-box-shadow: 0 0px 5px #A5A5A5;
 
   padding:5px 20px 20px 20px;
   margin: 20px 5px;
@@ -115,8 +155,8 @@ div#sidebar{
 }
 
 #sidebar ul.categories-field {
-  background:#FFF; 
-  border:#DDD solid 1px; 
+  background:#FFF;
+  border:#DDD solid 1px;
   padding: 5px;
 }
 
@@ -130,6 +170,18 @@ div#sidebar{
   border-bottom:1px solid #FFF;
 }
 
+#sidebar textarea, #sidebar input, #sidebar select {
+  font-size:12px;
+}
+
+/* sidebar media section */
+
+#sidebar .media img {
+  border:4px solid #FFF;
+  margin: 0 4px 4px 0;
+}
+
+
 /* form */
 
 label {
@@ -138,6 +190,7 @@ label {
 }
 
 textarea, input[type="text"], input[type="password"], input[type="file"], select {
+  background: white url(input_bg.gif) repeat-x 50% 0%;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-style: solid;
@@ -146,9 +199,9 @@ textarea, input[type="text"], input[type="password"], input[type="file"], select
   font-size: 15px;
 }
 
-input[type="text"], input[type="password"], textarea{
-  -moz-border-sizing: border-box;
-  -webkit-box-sizing: border-box;
+input[type="file"] {
+  background: none;
+  border:none;
 }
 
 div.field{
@@ -169,7 +222,31 @@ input.title {
   width: 98%;
 }
 
+/* assets section */
+
+.asset {
+  margin:25px 10px;
+}
+
+.asset .preview {
+  float:left;
+  margin-right: 20px;
+}
+
+.asset .preview img {
+  border:5px solid #DDDDDD;
+}
+
 /* misc */
+
+table.grid  {
+  border-collapse:collapse;
+  width: 100%;
+}
+
+table.grid  td {
+  padding: 7px;
+}
 
 ul.list  { list-style: none; }
 .list li { padding: 7px; }
@@ -186,8 +263,8 @@ ul.list  { list-style: none; }
 
   box-shadow: 1px 1px 0px #FFF;
   -moz-box-shadow: 1px 1px 0px #FFF;
-  -webkit-box-shadow: 1px 1px 0px #FFF;  
-  
+  -webkit-box-shadow: 1px 1px 0px #FFF;
+
   text-shadow: 1px 1px 1px #FFF;
   font-weight: bold;
   border: 1px solid #cccccc;

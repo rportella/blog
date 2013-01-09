@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+
+
+
   namespace :admin do
+    resources :assets
     root to: "posts#index"
     resources :posts
     resources :post_categories, except: [:show]

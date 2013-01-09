@@ -1,0 +1,26 @@
+#column2
+
+  %h3=t(".search")
+
+  = form_tag posts_path, :method => :get do
+    = text_field_tag :search, "",
+          :placeholder => "key words here",
+          :size => 30,
+          :type => "search",
+          :class => "search-field"
+
+  %h3=t(".categories")
+
+  %ul.squared
+    - @categories.each do |category|
+      %li= link_to_unless_current category.name, posts_path(:category_id => category.id)
+
+  %h3=t(".keep_in_touch")
+
+  %ul.squared
+    %li
+      FOLLOW US ON
+      %strong{style: "color:#d7412c"} TWITTER
+    %li
+      SUBSCRIBE TO OUR
+      %strong{style: "color:#d7412c"} FEED

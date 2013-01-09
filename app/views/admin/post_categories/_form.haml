@@ -1,8 +1,9 @@
-= form_for [:admin, @category] do |f| %>
-  = error_messages_for @category %>
+= form_for [:admin, @category] do |f|
 
   .field
     = f.text_field :name, :placeholder => "Category name"
 
   .actions
-    = f.submit :class => "button" {or} link_to "cancel", admin_post_categories_path
+    = f.submit :class => "button"
+    or
+    = link_to "cancel", admin_post_categories_path

@@ -1,14 +1,15 @@
 class Admin::PostsController < Admin::AdminController
-  before_filter :load_resources, :only => %w(new create edit update)
+  before_filter :load_resources, only: %w(new create edit update)
+  menu_item :posts
 
   def index
     @posts = Post.all
-    # respond_with @posts
+    respond_with @posts
   end
 
   def show
     @post = Post.find(params[:id])
-    render :layout => "application"
+    render layout: "application"
   end
 
   def new
@@ -24,20 +25,20 @@ class Admin::PostsController < Admin::AdminController
     @post = Post.new(params[:post])
 
     flash[:notice] = 'Post was successfully created.' if @post.save
-    respond_with @post, :location => admin_posts_path
+    respond_with @post, location: admin_posts_path
   end
 
   def update
     @post = Post.find(params[:id])
     flash[:notice] = 'Post was successfully updated.' if @post.update_attributes(params[:post])
-    respond_with @post, :location => edit_admin_post_path(@post)
+    respond_with @post, location: edit_admin_post_path(@post)
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
 
-    respond_with @post, :location => admin_posts_path
+    respond_with @post, location: admin_posts_path
   end
 
 protected
@@ -45,6 +46,7 @@ protected
   def load_resources
     @authors = User.all
     @categories = PostCategory.all
+    @assets = Asset.order("created_at DESC")
   end
 
 end

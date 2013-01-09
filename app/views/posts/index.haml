@@ -1,3 +1,5 @@
+= stylesheet_link_tag "blog"
+
 #column1
   - if @posts.present?
 
@@ -5,9 +7,9 @@
       %h2= link_to post.title.titleize, post
 
       #post
-        = simple_format post.excerpt
+        = textilize post.excerpt
 
-        %p= link_to "continue ...", post
+        %p= link_to t(".read_more"), post
+    %h3 Zero posts founded.
 
-  - else
-    %p We'll start posting soon.
+= render "sidebar"
