@@ -1,5 +1,8 @@
-@import "reset.css";
-@import "common.css";
+/*
+ *= require reset
+ *= require common
+ *= require_self
+*/
 
 h2 {
   font-size: 20px;
@@ -195,7 +198,7 @@ label {
 }
 
 textarea, input[type="text"], input[type="password"], input[type="file"], select {
-  background: white url(/images/input_bg.gif) repeat-x 50% 0%;
+  background: white url(input_bg.gif) repeat-x 50% 0%;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-style: solid;
@@ -298,7 +301,7 @@ ul.list  { list-style: none; }
 ul.list li.header{
   border: 1px solid #E4E4E4;
   height: 37px;
-  line-height: 37px;  
+  line-height: 37px;
   border-right: 1px solid #E4E4E4;
   color: #8A8A8A;
   margin: 0px;
@@ -307,7 +310,7 @@ ul.list li.header{
   padding: 0 5px 0 8px;
   font-size:12px;
   background-image: -moz-linear-gradient(100% 100% 180deg, #FDFDFD, #ECECEC);
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FDFDFD), to(#ECECEC));  
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FDFDFD), to(#ECECEC));
 }
 
 .button {
@@ -357,8 +360,8 @@ ul.list li.header{
   padding: .2em .5em;
   display: block;
   float: left;
-  margin-right: 3px; 
-  
+  margin-right: 3px;
+
   text-shadow: 1px 1px 1px #FFF;
   border: 1px solid #cccccc;
   position: relative;
@@ -366,23 +369,23 @@ ul.list li.header{
   color: #666;
   background-image: -moz-linear-gradient(100% 100% 180deg, #f0f0f0, #d9d9d9);
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f0f0f0), to(#d9d9d9));
-  
+
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  font-weight: bold;  
+  font-weight: bold;
 }
 
 .pagination span.disabled {
   color: #929292;
-  border: 1px solid #DDD; 
+  border: 1px solid #DDD;
   background:none;
 }
 
 .pagination em {
   color: #FFF;
   text-shadow: 1px 1px 1px #0082AF;
-  border: 1px solid #0082AF;  
+  border: 1px solid #0082AF;
   background-image: -moz-linear-gradient(100% 100% 180deg, #00B2D2, #0082AF);
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00B2D2), to(#0082AF));
 }
@@ -390,7 +393,7 @@ ul.list li.header{
 .pagination a {
   text-decoration: none;
   color: #666;
-  border: 1px solid #DDD; 
+  border: 1px solid #DDD;
 }
 
 .pagination a:hover, .pagination a:focus {
@@ -402,7 +405,7 @@ ul.list li.header{
   display: block;
   height: 0;
   clear: both;
-  visibility: hidden; 
+  visibility: hidden;
 }
 
 * html .pagination { height: 1%; }

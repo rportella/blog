@@ -14,7 +14,7 @@
 
   jQuery.fn.insertTextileImageTo = function(destination) {
 
-    $(this).find('a').click(function(){
+    $('a', this).live('click', function(){
       var textileVersion = "!" + $(this).attr('href') + "!";
       var currentText    = $(destination).val();
 

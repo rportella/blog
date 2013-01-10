@@ -52,25 +52,26 @@
       = section t"assets" do
         #media
           = render :partial => "asset", :collection => @assets
-          %p
-            = link_to "load more assets",
-              assets_admin_posts_path(:page => @assets.next_page),
-              :remote => true,
-              :id => "more-assets",
-              :class => "button"
+        %p
+          = link_to "load more assets",
+            assets_admin_posts_path(:page => @assets.next_page),
+            :remote => true,
+            :id => "more-assets",
+            :class => "button"
 
-            = image_tag "loader.gif", :id => "assets-loading", :class => "middle loading"
+          = image_tag "loader.gif", :id => "assets-loading", :class => "middle loading"
 
 = javascript_include_tag "lib/jquery.textile.image"
 
 - content_for :bottom do
   :javascript
-
     var toggleLoading = function() { $("#assets-loading").toggle() };
+
+    $("#media").insertTextileImageTo("#post_body")
 
     $("#more-assets")
       .bind("ajax:loading",  toggleLoading)
       .bind("ajax:complete", toggleLoading);
 
 
-    $(".media").insertTextileImageTo("#post_body")
+
