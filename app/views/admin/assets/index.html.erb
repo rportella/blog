@@ -21,12 +21,15 @@
   </table>
 
 <%- else -%>
-  <p>You don't have any asset yet.</p>
+  <p>You dont have any asset yet.</p>
 <%- end -%>
 
 <hr class="thick" />
-
 <div class="bar">
+  <div class="left">
+    <%= will_paginate @assets %>
+  </div>
+
   <div class="right">
     <%= link_to 'New asset', new_admin_asset_path, :class => "button" %>
   </div>

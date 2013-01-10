@@ -3,7 +3,7 @@ class Admin::PostsController < Admin::AdminController
   menu_item :posts
 
   def index
-    @posts = Post.all
+    @posts = Post.order("created_at desc").paginate(page: params[:page])
     respond_with @posts
   end
 
@@ -34,6 +34,12 @@ class Admin::PostsController < Admin::AdminController
     respond_with @post, location: edit_admin_post_path(@post)
   end
 
+  def assets
+    @assets = Asset.order("created_at DESC").paginate(page: params[:page], per_page: 3)
+
+    render layout: false
+  end
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
@@ -46,7 +52,7 @@ protected
   def load_resources
     @authors = User.all
     @categories = PostCategory.all
-    @assets = Asset.order("created_at DESC")
+    @assets = Asset.order("created_at DESC").paginate(page: params[:page], per_page: 3)
   end
 
 end

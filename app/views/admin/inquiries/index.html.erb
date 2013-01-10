@@ -1,0 +1,33 @@
+<h2>Inquiries</h2>
+
+<table class="grid">
+  
+  <tr class="header">
+    <th colspan="4"> Open inquiries </th>
+  </tr>
+
+  <% if @open.present? %>
+    <%= render @open %>
+  <% else %>
+    <tr>
+      <td class="hint">There are no open inquiries</td>
+    </tr>
+  <% end %>
+  
+</table>
+
+<br/>
+
+<table class="grid">
+  <tr class="header">
+    <th colspan="4"> Closed inquiries </th>
+  </tr>
+
+  <% if @closed.present? %>
+    <%= render @closed %>
+  <% else %>
+    <tr>
+      <td class="hint">There are no closed inquiries</td>
+    </tr>
+  <% end %>
+</table>

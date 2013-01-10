@@ -10,6 +10,9 @@
         = textilize post.excerpt
 
         %p= link_to t(".read_more"), post
+  - else
     %h3 Zero posts founded.
+  .left
+    = will_paginate @posts
 
 = render "sidebar"

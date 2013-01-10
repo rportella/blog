@@ -1,11 +1,18 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :first_name, :last_name
-  has_many :post
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :full_name
 
-  validates_presence_of :email, :first_name, :last_name
+  devise :database_authenticatable, :recoverable,
+         :rememberable, :trackable, :token_authenticatable, :validatable
 
-  def  full_name
-    "#{first_name} #{last_name}"
+  has_many :posts
+
+  validates_format_of :full_name, :with => /^([\w\d]+ [\w\d]+)+$/
+
+  def first_name
+    self.full_name.split.first
   end
 
+  def last_name
+    self.full_name.split.last
+  end
 end

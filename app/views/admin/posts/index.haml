@@ -19,5 +19,7 @@
   .thick
 
     .bar
+      .left
+        = will_paginate @posts
       .right
         = link_to_new Post, new_admin_post_path, :class => "button"

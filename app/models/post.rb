@@ -17,6 +17,7 @@ class Post < ActiveRecord::Base
   scope :search, lambda {|terms| where("title LIKE :t OR body LIKE :t", t: "#{terms}")}
 
   before_validation :genarate_slug
+  delegate :full_name, to: :author, prefix: true
 
   def to_param
     "#{id}-#{slug}"

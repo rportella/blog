@@ -1,0 +1,7 @@
+<% if @comment.valid? %>
+  $("#comments").append("<%= j render(@comment) %>");
+  $("#<%= dom_id(@comment) %>").show('clip');
+  <% @comment = Comment.new %>
+<% end %>
+
+$("#new_comment").html("<%= j render('form', :post => @post, :comment => @comment) %>");

@@ -20,7 +20,9 @@
   %ul.squared
     %li
       FOLLOW US ON
-      %strong{style: "color:#d7412c"} TWITTER
+      %strong{style: "color:#d7412c"}
+        = link_to "TWITTER", "http://twitter.com/egenial"
     %li
       SUBSCRIBE TO OUR
-      %strong{style: "color:#d7412c"} FEED
+      %strong{style: "color:#d7412c"}
+        = link_to "FEED", posts_path(:format => :atom)

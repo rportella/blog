@@ -3,7 +3,7 @@
 %head
   %title Blog
   = stylesheet_link_tag    "application", "scaffold"
-  = javascript_include_tag "defaults"
+  = javascript_include_tag "lib/jquery", "lib/jquery-ui", "rails"
   = csrf_meta_tags
 %body
   #wrapper
@@ -12,50 +12,55 @@
         = image_tag "logo_header.png", class: "middle"
 
       #main-nav
-        %ul
-          %li
-            = link_to root_path do
-              HOME
+        = menu do |m|
+          = m.home root_path do
+            HOME
+            %br
+            %span
+              DISCOVER OUR
               %br
-              %span
-                DISCOVER OUR
-                %br AWESOME PRODUCT
-          %li
-            %a
-              TOUR
+              AWESOME PRODUCT
+
+
+          = m.tour tour_path do
+            TOUR
+            %br
+            %span
+              DISCOVER WHY IT'LL
               %br
-              %span
-                DISCOVER WHY IT'LL
-                %br MAKE YOUR LIFE BETTER
-          %li
-            = link_to posts_path do
-              BLOG
+              MAKE YOUR LIFE BETTER
+
+          = m.posts posts_path do
+            BLOG
+            %br
+            %span
+              NEWS, TIPS AND OUR
               %br
-              %span
-                NEWS, TIPS AND OUR
-                %br
-                RANDOM THOUGHTS
-          %li
-            %a
-              FAQ
+              RANDOM THOUGHTS
+
+          = m.help "#" do
+            FAQ
+            %br
+            %span
+              FREQUENTLY ASKED
               %br
-              %span
-                FREQUENTLY ASKED
-                %br QUESTION
-          %li
-            %a
-              CONTACT
+              QUESTION
+
+          = m.contact new_inquiry_path do
+            CONTACT
+            %br
+            %span
+              YOU'RE NOT ALONE
               %br
-              %span
-                YOU'RE NOT ALONE
-                %br GET IN TOUCH
-          %li
-            %a
-              PRICE
+              GET IN TOUCH
+
+          = m.prices prices_path do
+            PRICE
+            %br
+            %span
+              SMALL AMOUNT
               %br
-              %span
-                SMALL AMOUNT
-                %br FOR A BIG BENEFIT
+              FOR A BIG BENEFIT
 
     #content
       = flash_messages

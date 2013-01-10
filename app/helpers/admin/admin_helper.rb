@@ -1,4 +1,4 @@
-module AdminHelper
+module Admin::AdminHelper
 
   def translate_attribute(model, attribute)
     model.human_attribute_name(attribute)

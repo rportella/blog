@@ -3,7 +3,7 @@
 %head
   %title Blog
   = stylesheet_link_tag    "admin", "scaffold"
-  = javascript_include_tag "lib/jquery", "rails"
+  = javascript_include_tag "lib/jquery", "lib/jquery-ui", "rails"
   = csrf_meta_tags
 %body
 
@@ -16,8 +16,11 @@
           = m.assets 'Assets', admin_assets_path
           = m.changelog 'Changelog', "#"
           = m.faqs 'FAQ', "#"
-          = m.inquiries 'Inquiries', "#"
+          = m.inquiries 'Inquiries', admin_inquiries_path
+          = m.users 'Users', admin_users_path
 
+      #user-bar
+        = link_to "Logout", destroy_user_session_path, method: :delete
 
     #content-wrapper
       #content

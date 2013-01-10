@@ -11,12 +11,12 @@
     = t("comments")
 
   #comments
-  - if @post.comments.any?
-    = render @post.comments
+    - if @post.comments.any?
+      = render @post.comments
 
-  - else
-    %p=t(".nobody_commented_this_post_yet")
+    - else
+      %p=t(".nobody_commented_this_post_yet")
+
 
   = render "comments/form", post: @post, comment: Comment.new
-
 = render "sidebar"

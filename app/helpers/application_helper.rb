@@ -1,6 +1,6 @@
 module ApplicationHelper
   def error_massages_for(resource)
-    render "shared/error_massages_for", resourse: @post
+    render "shared/error_massages_for", resource: resource
   end
   def flash_messages
     flash.collect do |key, msg|

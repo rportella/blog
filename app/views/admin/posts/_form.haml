@@ -50,12 +50,27 @@
         = f.text_field :slug, :size => 38
 
       = section t"assets" do
-        .media
-          - @assets.each do |a|
-            = link_to image_tag(a.document.url(:thumb)), a.document.url, target: "_blank"
+        #media
+          = render :partial => "asset", :collection => @assets
+          %p
+            = link_to "load more assets",
+              assets_admin_posts_path(:page => @assets.next_page),
+              :remote => true,
+              :id => "more-assets",
+              :class => "button"
+
+            = image_tag "loader.gif", :id => "assets-loading", :class => "middle loading"
 
 = javascript_include_tag "lib/jquery.textile.image"
 
 - content_for :bottom do
   :javascript
+
+    var toggleLoading = function() { $("#assets-loading").toggle() };
+
+    $("#more-assets")
+      .bind("ajax:loading",  toggleLoading)
+      .bind("ajax:complete", toggleLoading);
+
+
     $(".media").insertTextileImageTo("#post_body")
