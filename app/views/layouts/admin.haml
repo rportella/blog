@@ -9,15 +9,16 @@
 
   #wrapper
     #header
-      #main-nav
-        = menu do |m|
-          = m.dashboard 'Dashboard', "#"
-          = m.posts 'Posts', admin_posts_path
-          = m.assets 'Assets', admin_assets_path
-          = m.changelog 'Changelog', "#"
-          = m.faqs 'FAQ', "#"
-          = m.inquiries 'Inquiries', admin_inquiries_path
-          = m.users 'Users', admin_users_path
+      = if user_signed_in?
+        #main-nav
+          = menu do |m|
+            = m.dashboard 'Dashboard', "#"
+            = m.posts 'Posts', admin_posts_path
+            = m.assets 'Assets', admin_assets_path
+            = m.changelog 'Changelog', "#"
+            = m.faqs 'FAQ', "#"
+            = m.inquiries 'Inquiries', admin_inquiries_path
+            = m.users 'Users', admin_users_path
 
       #user-bar
         = link_to "Logout", destroy_user_session_path, method: :delete
