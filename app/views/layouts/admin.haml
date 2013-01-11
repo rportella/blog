@@ -9,7 +9,7 @@
 
   #wrapper
     #header
-      = if user_signed_in?
+      - if user_signed_in?
         #main-nav
           = menu do |m|
             = m.dashboard 'Dashboard', "#"
